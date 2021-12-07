@@ -43,6 +43,19 @@
             "email": "marcelo.bezerra@criarenet.com"
         }
     ],
+
+    "extra": {
+        "nexus-push": [
+            {
+                "name": "prod",
+                "url": "https://nexus.criarenet.com/repository/composer/",
+                "username": "composer",
+                "password": "Com@Criar3n3t",
+                "secure-https": false
+            }
+        ]
+    },
+
    
     "version": "1.0"
 }
