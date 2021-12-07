@@ -1,0 +1,48 @@
+{
+    "config": {
+        "secure-https": false
+    },
+    "name": "criarenet/blog",
+    "description": "pacote de adminstração de blog para laravel",
+    "type": "composer",
+    "require": {
+        "php": "^7.3|^7.4|^8.0",
+        "illuminate/support": "~6.0|~7.0|~8.0",
+        "intervention/image": "^2.4",
+        "doctrine/dbal": "^2.5",
+        "larapack/doctrine-support": "~0.1.4",
+        "laravel/ui": ">=1.0",
+        "arrilot/laravel-widgets": "^3.7",
+        "league/flysystem": "~1.1|~2.0",
+        "ext-json": "*",
+        "elendev/composer-push": "^0.7.0"
+    },
+
+    "require-dev": {
+        "phpunit/phpcov": ">=6.0",
+        "phpunit/phpunit": ">=8.0",
+        "laravel/framework": "~6.0|~7.0|~8.0",
+        "orchestra/testbench": ">=4.0",
+        "laravel/browser-kit-testing": ">=5.0.0",
+        "orchestra/testbench-browser-kit": ">=4.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Criarenet\\blog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Criarenet\\testes\\": "testes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcelo Bezerra",
+            "email": "marcelo.bezerra@criarenet.com"
+        }
+    ],
+   
+    "version": "1.0"
+}
