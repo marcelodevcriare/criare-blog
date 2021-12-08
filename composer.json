@@ -3,7 +3,7 @@
         "secure-https": false
     },
     "name": "criarenet/blog",
-    "description": "pacote de adminstração de blog para laravel",
+    "description": "Pacote de adminstração de blog para laravel",
     "type": "composer",
     "require": {
         "php": "^7.3|^7.4|^8.0",
@@ -16,8 +16,8 @@
         "league/flysystem": "~1.1|~2.0",
         "ext-json": "*",
         "elendev/composer-push": "^0.7.0"
-    },
 
+    },
     "require-dev": {
         "phpunit/phpcov": ">=6.0",
         "phpunit/phpunit": ">=8.0",
@@ -29,12 +29,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Criarenet\\blog\\": "src/"
+            "Criarenet\\Blog\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Criarenet\\testes\\": "testes/"
+            "Criarenet\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -54,8 +54,6 @@
                 "secure-https": false
             }
         ]
-    },
-
-   
+    },   
     "version": "1.0"
 }
