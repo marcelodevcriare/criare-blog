@@ -27,7 +27,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'Criarenet\\Http\\Controllers',
+        'namespace' => 'Criarenet\\Blog\\Http\\Controllers',
     ],
 
     /*
@@ -104,7 +104,7 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'pt_br',
 
         /*
          * Select languages that are supported.

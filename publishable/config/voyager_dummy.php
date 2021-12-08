@@ -27,7 +27,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'Criarenet\\Http\\Controllers',
+        'namespace' => 'Criarenet\\Blog\\Http\\Controllers',
     ],
 
     /*
@@ -104,14 +104,13 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'pt_br',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
             'en',
-            //'pt',
         ],
     ],
 
@@ -144,9 +143,7 @@ return [
         ],
 
         'widgets' => [
-            'Criarenet\\Blog\Widgets\\UserDimmer',
             'Criarenet\\Blog\Widgets\\PostDimmer',
-            'Criarenet\\Blog\Widgets\\PageDimmer',
         ],
 
     ],
