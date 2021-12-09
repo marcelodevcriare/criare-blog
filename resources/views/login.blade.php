@@ -3,7 +3,7 @@
 @section('content')
     <div class="login-container">
 
-        <p>{{ __('voyager::login.signin_below') }}</p>
+        <p>Efetue o Login:</p>
 
         <form action="{{ route('voyager.login') }}" method="POST">
             {{ csrf_field() }}
@@ -15,15 +15,15 @@
             </div>
 
             <div class="form-group form-group-default" id="passwordGroup">
-                <label>{{ __('voyager::generic.password') }}</label>
+                <label>Senha</label>
                 <div class="controls">
-                    <input type="password" name="password" placeholder="{{ __('voyager::generic.password') }}" class="form-control" required>
+                    <input type="password" name="password" placeholder="Senha" class="form-control" required>
                 </div>
             </div>
 
             <div class="form-group" id="rememberMeGroup">
                 <div class="controls">
-                    <input type="checkbox" name="remember" id="remember" value="1"><label for="remember" class="remember-me-text">{{ __('voyager::generic.remember_me') }}</label>
+                    <input type="checkbox" name="remember" id="remember" value="1"><label for="remember" class="remember-me-text">Lembrar login</label>
                 </div>
             </div>
 
