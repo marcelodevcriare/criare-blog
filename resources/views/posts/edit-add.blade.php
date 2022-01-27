@@ -143,6 +143,22 @@
                             <textarea class="form-control" name="excerpt">{{ $dataTypeContent->excerpt ?? '' }}</textarea>
                         </div>
                     </div>
+                    <!-- ### TIMING ### -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"> Tempo de leitura</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            @include('voyager::multilingual.input-hidden', [
+                                '_field_name'  => 'timing',
+                                '_field_trans' => get_field_translations($dataTypeContent, 'timing')
+                            ])
+                            <input type="number" class="form-control" name="timing" value="{{ $dataTypeContent->timing ?? '' }}"></input>
+                        </div>
+                    </div>
 
                     <div class="panel">
                         <div class="panel-heading">
@@ -154,7 +170,7 @@
                         <div class="panel-body">
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title'];
+                                $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title', 'timing'];
                             @endphp
 
                             @foreach($dataTypeRows as $row)
@@ -203,9 +219,9 @@
                                     '_field_trans' => get_field_translations($dataTypeContent, 'slug')
                                 ])
                                 <input type="text" class="form-control" id="slug" name="slug"
-                                    placeholder="slug"
-                                    {!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}
-                                    value="{{ $dataTypeContent->slug ?? '' }}">
+                                       placeholder="slug"
+                                       {!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}
+                                       value="{{ $dataTypeContent->slug ?? '' }}">
                             </div>
                             <div class="form-group">
                                 <label for="status">{{ __('voyager::post.status') }}</label>
@@ -286,7 +302,7 @@
 
             @section('submit-buttons')
                 <button type="submit" class="btn btn-primary pull-right">
-                     @if($edit){{ __('voyager::post.update') }}@else <i class="icon wb-plus-circle"></i> {{ __('voyager::post.new') }} @endif
+                    @if($edit){{ __('voyager::post.update') }}@else <i class="icon wb-plus-circle"></i> {{ __('voyager::post.new') }} @endif
                 </button>
             @stop
             @yield('submit-buttons')
@@ -294,9 +310,9 @@
 
         <iframe id="form_target" name="form_target" style="display:none"></iframe>
         <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+              enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
             <input name="image" id="upload_file" type="file"
-                     onchange="$('#my_form').submit();this.value='';">
+                   onchange="$('#my_form').submit();this.value='';">
             <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
             {{ csrf_field() }}
         </form>
@@ -332,21 +348,21 @@
         var $file;
 
         function deleteHandler(tag, isMulti) {
-          return function() {
-            $file = $(this).siblings(tag);
+            return function() {
+                $file = $(this).siblings(tag);
 
-            params = {
-                slug:   '{{ $dataType->slug }}',
-                filename:  $file.data('file-name'),
-                id:     $file.data('id'),
-                field:  $file.parent().data('field-name'),
-                multi: isMulti,
-                _token: '{{ csrf_token() }}'
-            }
+                params = {
+                    slug:   '{{ $dataType->slug }}',
+                    filename:  $file.data('file-name'),
+                    id:     $file.data('id'),
+                    field:  $file.parent().data('field-name'),
+                    multi: isMulti,
+                    _token: '{{ csrf_token() }}'
+                }
 
-            $('.confirm_delete_name').text(params.filename);
-            $('#confirm_delete_modal').modal('show');
-          };
+                $('.confirm_delete_name').text(params.filename);
+                $('#confirm_delete_modal').modal('show');
+            };
         }
 
         $('document').ready(function () {
@@ -364,7 +380,7 @@
             });
 
             @if ($isModelTranslatable)
-                $('.side-body').multilingual({"editing": true});
+            $('.side-body').multilingual({"editing": true});
             @endif
 
             $('.side-body input[data-slug-origin]').each(function(i, el) {
