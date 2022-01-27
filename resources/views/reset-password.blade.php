@@ -21,6 +21,12 @@
             </button>
 
         </form>
+
+        <a href="/admin/login">
+            <button class="btn btn-block login-button" id="voltar" style="margin-left: 20px; display: none">
+                <span class="">Voltar a tela de login</span>
+            </button>
+        </a>
         <div style="clear:both"></div>
         <br>
         <div class="infos alert" style="display: none"></div>
@@ -65,6 +71,8 @@
                             .html('<span> Senha alterada com sucesso! Enviado ao email informado </span>')
                             .addClass('alert-success')
                             .show();
+
+                        $('#voltar').show();
 
                         $('.signin').html('<span class="signin"> Alterar senha </span>')
 
