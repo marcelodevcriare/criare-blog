@@ -57,7 +57,7 @@
                                     <br>
                                     <small>{{ __('voyager::profile.password_hint') }}</small>
                                 @endif
-                                <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password" required>
+                                <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password"  @if(!isset($dataTypeContent->password)) required @endif>
                             </div>
 
                             @can('editRoles', $dataTypeContent)
