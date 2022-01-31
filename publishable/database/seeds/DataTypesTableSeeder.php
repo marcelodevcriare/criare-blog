@@ -14,8 +14,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'users',
-                'display_name_singular' => __('voyager::seeders.data_types.user.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.user.plural'),
+                'display_name_singular' => 'Usuário',
+                'display_name_plural'   => 'Usuários',
                 'icon'                  => 'voyager-person',
                 'model_name'            => 'Criarenet\\Blog\\Models\\User',
                 'policy_name'           => 'Criarenet\\Blog\\Policies\\UserPolicy',
@@ -29,8 +29,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'menus',
-                'display_name_singular' => __('voyager::seeders.data_types.menu.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.menu.plural'),
+                'display_name_singular' => 'Menu',
+                'display_name_plural'   => 'Menus',
                 'icon'                  => 'voyager-list',
                 'model_name'            => 'Criarenet\\Blog\\Models\\Menu',
                 'controller'            => '',
@@ -43,8 +43,8 @@ class DataTypesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'roles',
-                'display_name_singular' => __('voyager::seeders.data_types.role.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.role.plural'),
+                'display_name_singular' => 'Regra',
+                'display_name_plural'   => 'Regras',
                 'icon'                  => 'voyager-lock',
                 'model_name'            => 'Criarenet\\Blog\\Models\\Role',
                 'controller'            => 'Criarenet\\Blog\\Http\\Controllers\\VoyagerRoleController',

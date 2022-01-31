@@ -79,7 +79,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => 'Remember token',
+                'display_name' => 'Relembrar token',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 0,
@@ -190,7 +190,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'hidden',
-                'display_name' => 'Settings',
+                'display_name' => 'Configurações',
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 0,
