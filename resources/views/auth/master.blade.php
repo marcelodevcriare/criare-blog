@@ -16,7 +16,7 @@
     @endif
     <style>
         body {
-            background-image:url('/images/CTI_TRATADA.jpg');
+            background-image:url('/images/CTI_TRATADA.webp');
             background-color: {{ Voyager::setting("admin.bg_color", "#FFFFFF" ) }};
         }
         body.login .login-sidebar {
