@@ -130,7 +130,7 @@
                     <!-- ### EXCERPT ### -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">{!! __('voyager::post.excerpt') !!}</h3>
+                            <h3 class="panel-title">Meta Descrição</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
@@ -140,7 +140,11 @@
                                 '_field_name'  => 'excerpt',
                                 '_field_trans' => get_field_translations($dataTypeContent, 'excerpt')
                             ])
-                            <textarea class="form-control" name="excerpt">{{ $dataTypeContent->excerpt ?? '' }}</textarea>
+                            @php
+                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
+                                $row = $dataTypeRows->where('field', 'excerpt')->first();
+                            @endphp
+                            {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                         </div>
                     </div>
                     <!-- ### TIMING ### -->
@@ -159,48 +163,6 @@
                             <input type="number" class="form-control" name="timing" value="{{ $dataTypeContent->timing ?? '' }}"></input>
                         </div>
                     </div>
-
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{ __('voyager::post.additional_fields') }}</h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            @php
-                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                $exclude = ['title', 'body', 'excerpt', 'slug', 'status', 'category_id', 'author_id', 'featured', 'image', 'meta_description', 'meta_keywords', 'seo_title', 'timing'];
-                            @endphp
-
-                            @foreach($dataTypeRows as $row)
-                                @if(!in_array($row->field, $exclude))
-                                    @php
-                                        $display_options = $row->details->display ?? NULL;
-                                    @endphp
-                                    @if (isset($row->details->formfields_custom))
-                                        @include('voyager::formfields.custom.' . $row->details->formfields_custom)
-                                    @else
-                                        <div class="form-group @if($row->type == 'hidden') hidden @endif @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                            {{ $row->slugify }}
-                                            <label for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
-                                            @include('voyager::multilingual.input-hidden-bread-edit-add')
-                                            @if($row->type == 'relationship')
-                                                @include('voyager::formfields.relationship', ['options' => $row->details])
-                                            @else
-                                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
-                                            @endif
-
-                                            @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
-                                                {!! $after->handle($row, $dataType, $dataTypeContent) !!}
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-
                 </div>
                 <div class="col-md-4">
                     <!-- ### DETAILS ### -->
@@ -295,6 +257,26 @@
                                 ])
                                 <input type="text" class="form-control" name="seo_title" placeholder="SEO Title" value="{{ $dataTypeContent->seo_title ?? '' }}">
                             </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-bordered panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="icon wb-search"></i>TAGS</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="meta_description"><b>Separe as tags com ; como no exemplo abaixo:</b></label><br>
+                                <label for="meta_description">tag1; tag2; tag3; ...</label>
+                                @include('voyager::multilingual.input-hidden', [
+                                    '_field_name'  => 'meta_description',
+                                    '_field_trans' => get_field_translations($dataTypeContent, 'tags')
+                                ])
+                                <textarea class="form-control" name="tags" placeholder="Digite suas tags aqui">{{ $dataTypeContent->tags ?? '' }}</textarea>
+                            </div>
+
                         </div>
                     </div>
                 </div>

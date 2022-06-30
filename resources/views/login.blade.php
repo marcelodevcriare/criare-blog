@@ -28,13 +28,10 @@
             </div>
 
             <button type="submit" class="btn btn-block login-button">
-                <span class="signingin hidden"><span class="voyager-refresh"></span> Iniciando sessão...</span>
+                <span class="signingin hidden"><span class="voyager-refresh"></span> {{ __('voyager::login.loggingin') }}...</span>
                 <span class="signin">{{ __('voyager::generic.login') }}</span>
             </button>
 
-            <button type="button" class="btn btn-block login-button" id="resetPassword" style="margin-left: 15px; background: #FF0000">
-                <span class="signin">Esqueci minha senha</span>
-            </button>
         </form>
 
         <div style="clear:both"></div>
@@ -85,9 +82,5 @@
             document.getElementById('passwordGroup').classList.remove("focused");
         });
 
-
-        document.getElementById('resetPassword').addEventListener('click', function (event){
-            window.location.href = "{{ route('resetPassword')}}";
-        });
     </script>
 @endsection
