@@ -244,7 +244,7 @@
                             <div class="form-group">
                                 <label for="meta_keywords">{{ __('voyager::post.meta_keywords') }}</label><br>
                                 <label for="tags"><b>Separe as keywords com , como no exemplo abaixo:</b></label><br>
-                                <label for="tags">keyword1; keyword2; keyword3; (...)</label>
+                                <label for="tags">keyword1, keyword2, keyword3, (...)</label>
                                 @include('voyager::multilingual.input-hidden', [
                                     '_field_name'  => 'meta_keywords',
                                     '_field_trans' => get_field_translations($dataTypeContent, 'meta_keywords')
