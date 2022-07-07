@@ -130,7 +130,7 @@
                     <!-- ### EXCERPT ### -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Meta Descrição</h3>
+                            <h3 class="panel-title">Breve Descrição</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
@@ -242,7 +242,9 @@
                                 <textarea class="form-control" name="meta_description">{{ $dataTypeContent->meta_description ?? '' }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="meta_keywords">{{ __('voyager::post.meta_keywords') }}</label>
+                                <label for="meta_keywords">{{ __('voyager::post.meta_keywords') }}</label><br>
+                                <label for="tags"><b>Separe as keywords com , como no exemplo abaixo:</b></label><br>
+                                <label for="tags">keyword1; keyword2; keyword3; (...)</label>
                                 @include('voyager::multilingual.input-hidden', [
                                     '_field_name'  => 'meta_keywords',
                                     '_field_trans' => get_field_translations($dataTypeContent, 'meta_keywords')
@@ -268,10 +270,10 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="meta_description"><b>Separe as tags com ; como no exemplo abaixo:</b></label><br>
-                                <label for="meta_description">tag1; tag2; tag3; ...</label>
+                                <label for="tags"><b>Separe as tags com ; como no exemplo abaixo:</b></label><br>
+                                <label for="tags">tag1; tag2; tag3; (...)</label>
                                 @include('voyager::multilingual.input-hidden', [
-                                    '_field_name'  => 'meta_description',
+                                    '_field_name'  => 'tags',
                                     '_field_trans' => get_field_translations($dataTypeContent, 'tags')
                                 ])
                                 <textarea class="form-control" name="tags" placeholder="Digite suas tags aqui">{{ $dataTypeContent->tags ?? '' }}</textarea>
